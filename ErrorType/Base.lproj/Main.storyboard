@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ErrorType" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,8 +16,54 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nhp-Gg-87x">
+                                <rect key="frame" x="276" y="244" width="48" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="dividend" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tyS-sh-WJz">
+                                <rect key="frame" x="250.5" y="168" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Pf9-iI-M8k"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="divisor" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QIe-0B-wb5">
+                                <rect key="frame" x="250" y="206" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="oi3-cA-ZiR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xcn-y4-v2T">
+                                <rect key="frame" x="268" y="272.5" width="64" height="30"/>
+                                <state key="normal" title="Calculate"/>
+                                <connections>
+                                    <action selector="calculate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CKk-hx-SbN"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Xcn-y4-v2T" firstAttribute="top" secondItem="Nhp-Gg-87x" secondAttribute="bottom" constant="8" id="4UX-UH-KbG"/>
+                            <constraint firstItem="tyS-sh-WJz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Aln-8w-3uK"/>
+                            <constraint firstItem="tyS-sh-WJz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="148" id="Xhq-nt-MCw"/>
+                            <constraint firstItem="Nhp-Gg-87x" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jBR-dU-4Nn"/>
+                            <constraint firstItem="Xcn-y4-v2T" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="l2k-A0-ROP"/>
+                            <constraint firstItem="QIe-0B-wb5" firstAttribute="top" secondItem="tyS-sh-WJz" secondAttribute="bottom" constant="8" id="lYM-LR-a3L"/>
+                            <constraint firstItem="QIe-0B-wb5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nPm-F7-ZhC"/>
+                            <constraint firstItem="Nhp-Gg-87x" firstAttribute="top" secondItem="QIe-0B-wb5" secondAttribute="bottom" constant="8" id="vgu-8U-IOa"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dividendTextField" destination="tyS-sh-WJz" id="2qG-im-Y3B"/>
+                        <outlet property="divisorTextField" destination="QIe-0B-wb5" id="vwA-sk-VLq"/>
+                        <outlet property="resultLabel" destination="Nhp-Gg-87x" id="caZ-VI-jbg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
