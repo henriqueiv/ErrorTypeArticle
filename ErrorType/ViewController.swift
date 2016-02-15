@@ -9,7 +9,7 @@
 import UIKit
 
 // MARK: - Error with enum
-enum DivisionErrorEnum: ErrorType{
+enum DivisionErrorEnum: ErrorType {
     case DividendIsZero(code: Int)
     case DivisorIsZero(code: Int)
 }
@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     
     // MARK: Private methods
-    func divide(x:Float, _ y: Float) throws -> Float{
+    func divide(x:Float, _ y: Float) throws -> Float {
         guard x != 0 else {
             throw DivisionErrorEnum.DividendIsZero(code: 1)
         }
@@ -47,9 +47,10 @@ class ViewController: UIViewController {
             print("Your message when the DIVIDEND is zero. \nDetails: Execution failed with code \(code).")
         }catch DivisionErrorEnum.DivisorIsZero(let code){
             print("Your custom message when the DIVISOR is zero. \nDetails: Execution failed with code \(code).")
-        }catch let error as NSError{
-            print("Another error occurred. SOS!\n\(error.localizedDescription)")
+        }catch let error{ // error conforms with ErrorType
+            print("Another error occurred. SOS!\n\(error)")
         }
     }
     
 }
+
