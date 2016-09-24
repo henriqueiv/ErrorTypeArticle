@@ -9,9 +9,9 @@
 import UIKit
 
 // MARK: - Error with enum
-enum DivisionErrorEnum: ErrorType {
-    case DividendIsZero(code: Int)
-    case DivisorIsZero(code: Int)
+enum DivisionErrorEnum: Error {
+    case dividendIsZero(code: Int)
+    case divisorIsZero(code: Int)
 }
 
 class ViewController: UIViewController {
@@ -22,32 +22,32 @@ class ViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     
     // MARK: Private methods
-    func divide(x:Float, _ y: Float) throws -> Float {
+    private func divide(_ x:Float, _ y: Float) throws -> Float {
         guard x != 0 else {
-            throw DivisionErrorEnum.DividendIsZero(code: 1)
+            throw DivisionErrorEnum.dividendIsZero(code: 1)
         }
         
         guard y != 0 else{
-            throw DivisionErrorEnum.DivisorIsZero(code: 2)
+            throw DivisionErrorEnum.divisorIsZero(code: 2)
         }
         
         return x/y
     }
     
     // MARK: IBActions
-    @IBAction func calculate(sender: UIButton) {
-        do{
-            if let x = Float(dividendTextField.text!), let y = Float(divisorTextField.text!){
+    @IBAction func calculate(_ sender: UIButton) {
+        do {
+            if let x = Float(dividendTextField.text!), let y = Float(divisorTextField.text!) {
                 let result = try divide(x, y)
                 resultLabel.text = String(result)
-            }else{
+            } else {
                 resultLabel.text = "NaN"
             }
-        }catch DivisionErrorEnum.DividendIsZero(let code){
-            print("Your message when the DIVIDEND is zero. \nDetails: Execution failed with code \(code).")
-        }catch DivisionErrorEnum.DivisorIsZero(let code){
-            print("Your custom message when the DIVISOR is zero. \nDetails: Execution failed with code \(code).")
-        }catch let error{ // error conforms with ErrorType
+        } catch DivisionErrorEnum.dividendIsZero(let code) {
+            print("Your message when the DIVIDEND is zero. \nDetails: Execution failed with code: \(code).")
+        } catch DivisionErrorEnum.divisorIsZero(let code) {
+            print("Your custom message when the DIVISOR is zero. \nDetails: Execution failed with code: \(code).")
+        } catch let error { // error conforms with ErrorType
             print("Another error occurred. SOS!\n\(error)")
         }
     }
