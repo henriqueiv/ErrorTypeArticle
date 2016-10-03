@@ -1,7 +1,7 @@
 # ErrorTypeArticle
-This repo is the sample code used in my publication in medium.com about ErrorType.
+This repo is the sample code used in [my publication in medium.com about error handling in Swift](https://medium.com/@henriquevalcanaia/handling-errors-with-errortype-in-swift-2-1-86d1a4911de2#.xys1jlhro).
 
-## Useful links
+# Useful links
 - https://realm.io/news/testing-swift-error-type/
 - https://github.com/apple/swift/blob/master/stdlib/public/core/ErrorType.swift
 - https://developer.apple.com/reference/foundation/nserror
